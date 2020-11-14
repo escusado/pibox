@@ -1,8 +1,44 @@
-import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
-GPIO.setwarnings(False) # Ignore warning for now
-GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
-GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
+#!/usr/bin/python
 
-while True: # Run forever
-    if GPIO.input(10) == GPIO.HIGH:
-        print("Button was pushed!")
+import RPi.GPIO as GPIO
+import time
+import os
+import random
+
+buttonPin = 10 
+
+directory = "/home/pi/media/"
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(buttonPin, GPIO.IN)
+
+def playEpisode():
+	episode = random.choice(os.listdir(directory))
+	cmd = "nohup omxplayer -b -o hdmi "+"'"+directory+episode+"' &"
+	os.system('killall omxplayer.bin')
+	os.system(cmd)
+
+
+try:
+
+    # measure the time the button is pressed as timeA
+    GPIO.wait_for_edge(buttonPin, GPIO.RISING)
+    timeA = time.time()
+
+    # measure the time the button is released as timeB
+    GPIO.wait_for_edge(buttonPin, GPIO.FALLING)
+    timeB = time.time()
+
+    # take the first time away from the second time, to get the difference
+    timeDifference = timeB - timeA
+
+    # if the difference in times is more than 4 seconds, shutdown, or else play an episode and restart this script
+    if timeDifference > 4:
+        os.system('sudo shutdown now')
+    else:
+        playEpisode()
+        # point this to the location of this file
+        os.system('sudo python /home/pi/buttonscript.py')
+
+except KeyboardInterrupt:  
+    GPIO.cleanup() 

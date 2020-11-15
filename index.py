@@ -2,7 +2,7 @@
 import RPi.GPIO as GPIO
 import datetime
 
-now = null
+now = 0
 
 
 def button_callback(channel):

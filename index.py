@@ -32,7 +32,7 @@ def short_click():
            ).renderText('e ' + episode[0].split('x')[1]) + term_colors.ENDC)
 
     print(term_colors.TITLE +
-          (Figlet(font='big', width=170)
+          (Figlet(font='larry3d', width=170)
            ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)

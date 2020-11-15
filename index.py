@@ -22,15 +22,16 @@ def short_click():
         '.mkv', '').split(' - ')
 
     print(bcolors.INDEX + (Figlet(font='ogre', width=170)
-                           ).renderText(episode[0].replace('x', ' - ')) +
+                           ).renderText('s' + episode[0].replace('x', ' e')) +
           bcolors.ENDC)
+
     print(bcolors.TITLE +
           (Figlet(font='nancyj', width=170)
            ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + bcolors.ENDC)
 
-    print("SHORT", episode)
+    print(episode)
 
 
 def mid_click():

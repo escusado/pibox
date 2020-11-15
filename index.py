@@ -9,9 +9,9 @@ def button_callback(channel):
     global now
     if GPIO.input(10):
         now = datetime.datetime.now()
-        print("Rising edge detected on 25: " + now)
+        print("Rising edge detected on 25: ", now)
     else:
-        print("Falling edge detected on 25: " + datetime.datetime.now() - now)
+        print("Falling edge detected on 25: ", datetime.datetime.now() - now)
 
 
 # Ignore warning for now

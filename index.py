@@ -11,7 +11,8 @@ def button_callback(channel):
         now = datetime.datetime.now()
         print("Rising edge detected on 25: ", now)
     else:
-        print("Falling edge detected on 25: ", datetime.datetime.now() - now)
+        time_diff = (datetime.datetime.now() - now).microseconds
+        print("Falling edge detected on 25: ", time_diff)
 
 
 # Ignore warning for now

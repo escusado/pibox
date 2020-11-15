@@ -17,6 +17,7 @@ directory = "/home/pi/media/"
 
 now = 0
 
+    print("🚀 Simpsons Machine v0.1")
 
 def short_click():
     episode = random.choice(os.listdir(directory)).replace('.mp4', '').replace(
@@ -88,25 +89,32 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 
 prev_hold = 0
 hold = 0
-same_value_check = 0
+zero_value_check = 0
 
 while True:
-    hold += GPIO.input(10)
+    if GPIO.input(10) == 0:
+        zero_value_check += 1
 
-    if hold == 0:
+        if zero_value_check > 5 & hold > 0
+            zero_value_check = 0
+            check_action(hold)
+
         continue
+    
+    hold += 1
 
-    if hold == prev_hold:
-        print("hold", hold)
-        print("hold == prev_hold")
-        same_value_check += 1
-        continue
+    # hold += GPIO.input(10)
+    # if hold == prev_hold:
+    #     print("hold", hold)
+    #     print("hold == prev_hold")
+    #     same_value_check += 1
+    #     continue
 
-    if same_value_check > 3:
-        print("hold", hold)
-        print("same_value_check > 3")
-        check_action(hold)
-        hold = 0
-        same_value_check = 0
+    # if same_value_check > 3:
+    #     print("hold", hold)
+    #     print("same_value_check > 3")
+    #     check_action(hold)
+    #     hold = 0
+    #     same_value_check = 0
 
-    prev_hold = hold
+    # prev_hold = hold

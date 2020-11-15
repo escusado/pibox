@@ -98,9 +98,9 @@ while True:
             zero_value_check += 1
 
         if zero_value_check > 5:
+            check_action(hold)
             zero_value_check = 0
             hold = 0
-            check_action(hold)
 
         continue
 

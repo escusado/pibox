@@ -77,7 +77,8 @@ print(term_colors.TITLE + (Figlet(font='roman', width=170)).renderText(
       term_colors.ENDC)
 time.sleep(2)
 os.system("killall omxplayer")
-os.system("omxplayer '" + directory + filename + "' ")
+os.system("omxplayer '" + directory + filename + "' &")
+print("\n▶ PLAYING")
 
 while True:
     if GPIO.input(10) == 0:

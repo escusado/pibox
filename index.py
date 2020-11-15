@@ -10,8 +10,8 @@ from itertools import cycle
 from pyfiglet import Figlet
 
 LINE_LENGTH = 80
-RANDOM_MODE = "Random-Mode"
-TOP20_MODE = "Top#20-Mode"
+RANDOM_MODE = "Random"
+TOP20_MODE = "T o p # 20"
 
 
 class FONTS:

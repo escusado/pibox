@@ -5,14 +5,37 @@ import datetime
 now = 0
 
 
+def short_click():
+    print("SHORT")
+
+
+def mid_click():
+    print("MID")
+
+
+def long_click():
+    print("LONG")
+
+
 def button_callback(channel):
     global now
     if GPIO.input(10):
         now = datetime.datetime.now()
     else:
         time_diff = (datetime.datetime.now() - now).microseconds
-        if time_diff > 1000:
-            print("Falling edge detected on 25: ", time_diff)
+
+        if time_diff < 1000:
+            return
+
+        if time_diff < 10000:
+            short_click()
+            return
+
+        if time_diff < 30000:
+            mid_click()
+            return
+
+        long_click()
 
 
 # Ignore warning for now

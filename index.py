@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import os
 import random
 import sys
+import time
 from pyfiglet import Figlet
 
 
@@ -23,6 +24,7 @@ print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀�
 print(term_colors.EPISODE +
       (Figlet(font='cosmike', width=170)).renderText(mode) + term_colors.ENDC)
 print("\n\n\n")
+time.sleep(2)
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
@@ -48,6 +50,8 @@ def short_click():
            ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
+
+    time.sleep(2)
 
 
 def long_click():

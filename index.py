@@ -41,7 +41,7 @@ player = None
 top_episode_list = []
 with open('top20.txt') as file:
     top_episode_list = file.readlines()
-top20_episodes = cycle(top_episode_list)
+top20_episodes = None
 
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀")
@@ -102,6 +102,10 @@ def mode_change():
     mode = next(modes)
     font = FONTS.RANDOM if mode == RANDOM_MODE else FONTS.TOP20
     color = TERM_COLORS.RANDOM if mode == RANDOM_MODE else TERM_COLORS.TOP20
+
+    global top20_episodes
+    if mode == TOP20_MODE:
+        top20_episodes = cycle(top_episode_list)
 
     print(color + (Figlet(font=font, width=170)).renderText(mode) +
           TERM_COLORS.ENDC)

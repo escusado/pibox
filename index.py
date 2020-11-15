@@ -29,7 +29,7 @@ def short_click():
 
     print(bcolors.OKGREEN + (Figlet(font='chunky')).renderText(episode[0]) +
           bcolors.ENDC)
-    print(bcolors.OKCYAN + (Figlet(font='colossal')).renderText(episode[1]) +
+    print(bcolors.OKCYAN + (Figlet(font='letters')).renderText(episode[1]) +
           bcolors.ENDC)
 
     print("SHORT", episode)

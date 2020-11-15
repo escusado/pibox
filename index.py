@@ -7,8 +7,8 @@ from pyfiglet import Figlet
 
 
 class bcolors:
-    TITLE = '\033[95m'
-    INDEX = '\033[33m'
+    INDEX = '\033[95m'
+    TITLE = '\033[33m'
     ENDC = '\033[0m'
 
 
@@ -22,10 +22,10 @@ def short_click():
         '.mkv', '').split(' - ')
 
     print(bcolors.INDEX +
-          (Figlet(font='ntgreek', width=190)).renderText(episode[0]) +
+          (Figlet(font='ogre', width=180)).renderText(episode[0]) +
           bcolors.ENDC)
     print(bcolors.TITLE +
-          (Figlet(font='nancyj', width=190)).renderText(episode[1]) +
+          (Figlet(font='nancyj', width=180)).renderText(episode[1]) +
           bcolors.ENDC)
 
     print("SHORT", episode)

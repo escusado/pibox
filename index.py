@@ -54,6 +54,8 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 
 
 def get_top():
+    global current_top_episode
+
     next_in_list = top_episode_list[current_top_episode]
     current_top_episode += 1
     print("next_in_list", next_in_list)
@@ -100,6 +102,8 @@ def play():
 
 def mode_change():
     global mode
+    global current_top_episode
+
     mode = next(modes)
     font = FONTS.RANDOM if mode == RANDOM_MODE else FONTS.TOP20
     color = TERM_COLORS.RANDOM if mode == RANDOM_MODE else TERM_COLORS.TOP20

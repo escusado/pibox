@@ -37,7 +37,7 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 
 def short_click():
     filename = random.choice(os.listdir(directory))
-    episode = filename
+    episode = (filename + '.')[:-1]
     episode = episode.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
     print(episode)

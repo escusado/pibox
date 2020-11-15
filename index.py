@@ -44,7 +44,7 @@ top_episode_list = []
 with open('top20.txt') as file:
     for line in file:
         top_episode_list.append(line.strip())
-print(top_episode_list)
+
 top20_episodes = None
 
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
@@ -84,7 +84,7 @@ def play():
     if episode[0] in top_episode_list:
         print(TERM_COLORS.SEASON +
               (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)).renderText(
-                  'Episode Top#' + top_episode_list.index(episode[0])) +
+                  'Episode Top#' + str(top_episode_list.index(episode[0]))) +
               TERM_COLORS.ENDC + "\r")
 
     print(TERM_COLORS.SEASON + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)

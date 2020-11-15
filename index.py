@@ -98,12 +98,14 @@ while True:
         continue
 
     if hold == prev_hold:
+        print("hold == prev_hold")
         same_value_check += 1
         continue
 
     if same_value_check == 3:
+        print("same_value_check == 3")
         check_action(hold)
         hold = 0
+        same_value_check = 0
 
     prev_hold = hold
-    same_value_check = 0

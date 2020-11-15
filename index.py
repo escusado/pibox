@@ -22,7 +22,7 @@ class term_colors:
 
 directory = "/home/pi/media/"
 
-mode = sys.argv[1] if len(sys.argv) > 1 else RANDOM_MODE
+mode = RANDOM_MODE
 
 player = None
 
@@ -40,6 +40,15 @@ GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.add_event_detect(10, GPIO.BOTH)
 
 
+def get_top():
+    print("top")
+    return '07x20 - Bart recorre el mundo.mp4'
+
+
+def get_random():
+    return random.choice(os.listdir(directory))
+
+
 def play():
     print("PLAY NEXT...")
     global player
@@ -47,7 +56,7 @@ def play():
     if player:
         player.quit()
 
-    filename = random.choice(os.listdir(directory))
+    filename = get_random() if mode == TOP20_MODE else get_top()
     episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
     print(episode)
@@ -66,13 +75,14 @@ def play():
                    'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
     time.sleep(2)
 
-    player = OMXPlayer(Path(directory + filename))
-    player.set_aspect_mode('fill')
+    # player = OMXPlayer(Path(directory + filename))
+    # player.set_aspect_mode('fill')
     print("\n▶ PLAYING")
 
 
 def mode_change():
-    print("MODE CHANGE")
+    mode = RANDOM_MODE if mode == RANDOM_MODE else TOP20_MODE
+    print("MODE CHANGE", mode)
 
 
 def check_action(hold_value):

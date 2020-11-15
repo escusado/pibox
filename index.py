@@ -1,6 +1,8 @@
 # Import Raspberry Pi GPIO library
 import RPi.GPIO as GPIO
 import datetime
+import os
+import random
 
 directory = "/home/pi/media/"
 

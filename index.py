@@ -22,7 +22,7 @@ class FONTS:
     TOP20 = 'larry3d'
 
 
-class term_colors:
+class TERM_COLORS:
     SEASON = '\033[95m'
     TITLE = '\033[33m'
     RANDOM = '\033[32m'
@@ -67,19 +67,19 @@ def play():
     episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
     print(episode)
-    print(term_colors.SEASON + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
+    print(TERM_COLORS.SEASON + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
                                 ).renderText('s ' + episode[0].split('x')[0]) +
-          term_colors.ENDC + "\r")
+          TERM_COLORS.ENDC + "\r")
 
-    print(term_colors.EPISODE +
+    print(TERM_COLORS.EPISODE +
           (Figlet(font=FONTS.EPISODE, width=LINE_LENGTH)
-           ).renderText('e ' + episode[0].split('x')[1]) + term_colors.ENDC)
+           ).renderText('e ' + episode[0].split('x')[1]) + TERM_COLORS.ENDC)
 
-    print(term_colors.TITLE +
+    print(TERM_COLORS.TITLE +
           (Figlet(font=FONTS.TITLE, width=LINE_LENGTH)
            ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
-                   'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
+                   'ó', 'o').replace('ñ', 'n')) + TERM_COLORS.ENDC)
     time.sleep(2)
 
     # player = OMXPlayer(Path(directory + filename))
@@ -92,10 +92,10 @@ def mode_change():
     mode = next(modes)
     print("MODE CHANGE", mode)
     font = FONTS.RANDOM if mode == RANDOM_MODE else FONTS.TOP20
-    color = term_colors.RANDOM if mode == RANDOM_MODE else term_colors.TOP20
+    color = TERM_COLORS.RANDOM if mode == RANDOM_MODE else TERM_COLORS.TOP20
 
     print(color + (Figlet(font=font, width=170)).renderText(mode) +
-          term_colors.ENDC)
+          TERM_COLORS.ENDC)
     print("\n\n\n")
     time.sleep(2)
     play()

@@ -19,6 +19,7 @@ now = 0
 
 print("🚀 Simpsons Machine v0.1")
 
+
 def short_click():
     episode = random.choice(os.listdir(directory)).replace('.mp4', '').replace(
         '.mkv', '').split(' - ')
@@ -96,7 +97,7 @@ while True:
         if hold > 0:
             zero_value_check += 1
 
-        if zero_value_check > 5
+        if zero_value_check > 5:
             zero_value_check = 0
             hold = 0
             check_action(hold)

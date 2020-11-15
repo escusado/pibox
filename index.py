@@ -39,8 +39,8 @@ mode = RANDOM_MODE
 player = None
 
 top_episode_list = []
-with open('top20.txt') as my_list:
-    top_episode_list = my_file.readlines()
+with open('top20.txt') as file:
+    top_episode_list = file.readlines()
 
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀")

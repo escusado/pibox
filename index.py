@@ -27,9 +27,11 @@ def short_click():
     episode = random.choice(os.listdir(directory)).replace('.mp4', '').replace(
         '.mkv', '').split(' - ')
 
-    print(bcolors.OKGREEN + (Figlet(font='ntgreek')).renderText(episode[0]) +
+    print(bcolors.OKGREEN +
+          (Figlet(font='ntgreek', width=120)).renderText(episode[0]) +
           bcolors.ENDC)
-    print(bcolors.OKCYAN + (Figlet(font='nancyj')).renderText(episode[1]) +
+    print(bcolors.OKCYAN +
+          (Figlet(font='nancyj', width=120)).renderText(episode[1]) +
           bcolors.ENDC)
 
     print("SHORT", episode)

@@ -36,25 +36,8 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 
 
 def short_click():
-    filename = random.choice(os.listdir(directory))
-    episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
-
-    print(episode)
-    print(term_colors.SEASON + (Figlet(font='ogre', width=170)
-                                ).renderText('s ' + episode[0].split('x')[0]) +
-          term_colors.ENDC)
-
-    print(term_colors.EPISODE +
-          (Figlet(font='ogre', width=170)
-           ).renderText('e ' + episode[0].split('x')[1]) + term_colors.ENDC)
-
-    print(term_colors.TITLE +
-          (Figlet(font='roman', width=170)
-           ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
-               'é', 'e').replace('á', 'a').replace('í', 'i').replace(
-                   'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
-    time.sleep(2)
-    os.system("omxplayer '" + directory + filename + "' ")
+    print("LONG RESTART IN OTHER MODE")
+    os.system("pwd")
 
 
 def long_click():
@@ -74,7 +57,27 @@ def check_action(hold_value):
 hold = 0
 zero_value_check = 0
 
-short_click()
+filename = random.choice(os.listdir(directory))
+episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
+
+print(episode)
+print(term_colors.SEASON +
+      (Figlet(font='ogre', width=170)).renderText('s ' +
+                                                  episode[0].split('x')[0]) +
+      term_colors.ENDC)
+
+print(term_colors.EPISODE +
+      (Figlet(font='ogre', width=170)).renderText('e ' +
+                                                  episode[0].split('x')[1]) +
+      term_colors.ENDC)
+
+print(term_colors.TITLE + (Figlet(font='roman', width=170)).renderText(
+    episode[1].replace('ü', 'u').replace('ú', 'u').replace('é', 'e').replace(
+        'á', 'a').replace('í', 'i').replace('ó', 'o').replace('ñ', 'n')) +
+      term_colors.ENDC)
+time.sleep(2)
+os.system("killall omxplayer")
+os.system("omxplayer '" + directory + filename + "' ")
 
 while True:
     if GPIO.input(10) == 0:

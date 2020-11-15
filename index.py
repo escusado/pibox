@@ -25,8 +25,10 @@ def short_click():
                            ).renderText(episode[0].replace('x', ' - ')) +
           bcolors.ENDC)
     print(bcolors.TITLE +
-          (Figlet(font='nancyj', width=170)).renderText(episode[1]) +
-          bcolors.ENDC)
+          (Figlet(font='nancyj', width=170)
+           ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
+               'é', 'e').replace('á', 'a').replace('í', 'i').replace(
+                   'ó', 'o').replace('ñ', 'n')) + bcolors.ENDC)
 
     print("SHORT", episode)
 

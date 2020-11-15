@@ -31,10 +31,6 @@ player = None
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀\n\n\n")
-print(term_colors.EPISODE +
-      (Figlet(font='cosmike', width=170)).renderText(mode) + term_colors.ENDC)
-print("\n\n\n")
-time.sleep(2)
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
@@ -86,6 +82,12 @@ def mode_change():
     global mode
     mode = next(modes)
     print("MODE CHANGE", mode)
+    print(term_colors.EPISODE +
+          (Figlet(font='cosmike', width=170)).renderText(mode) +
+          term_colors.ENDC)
+    print("\n\n\n")
+    time.sleep(2)
+    play()
 
 
 def check_action(hold_value):
@@ -101,7 +103,7 @@ def check_action(hold_value):
 hold = 0
 zero_value_check = 0
 
-play()
+mode_change()
 
 while True:
     if GPIO.input(10) == 0:

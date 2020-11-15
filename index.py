@@ -37,8 +37,7 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 
 def short_click():
     filename = random.choice(os.listdir(directory))
-    episode = (filename + '.')[:-1]
-    episode = episode.replace('.mp4', '').replace('.mkv', '').split(' - ')
+    episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
     print(episode)
     print(term_colors.SEASON + (Figlet(font='ogre', width=170)
@@ -55,7 +54,7 @@ def short_click():
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
     time.sleep(2)
-    os.system("omxplayer " + directory + filename + " ")
+    os.system("omxplayer '" + directory + filename + "' ")
 
 
 def long_click():

@@ -4,6 +4,7 @@ import os
 import random
 import sys
 import time
+import subprocess
 from pyfiglet import Figlet
 
 RANDOM_MODE = "Random-Mode"
@@ -77,7 +78,8 @@ print(term_colors.TITLE + (Figlet(font='roman', width=170)).renderText(
       term_colors.ENDC)
 time.sleep(2)
 os.system("killall omxplayer")
-os.system("omxplayer '" + directory + filename + "' &")
+# os.system("omxplayer '" + directory + filename + "' &")
+subprocess.run(["omxplayer", directory + filename])
 print("\n▶ PLAYING")
 
 while True:

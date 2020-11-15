@@ -24,6 +24,7 @@ class FONTS:
 
 class TERM_COLORS:
     SEASON = '\033[95m'
+    EPISODE = '\033[94m'
     TITLE = '\033[33m'
     RANDOM = '\033[32m'
     TOP20 = '\033[31m'

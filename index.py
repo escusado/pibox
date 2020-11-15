@@ -23,7 +23,8 @@ class term_colors:
 
 directory = "/home/pi/media/"
 
-mode = cycle([RANDOM_MODE, TOP20_MODE])
+modes = cycle([RANDOM_MODE, TOP20_MODE])
+mode = RANDOM_MODE
 
 player = None
 
@@ -83,7 +84,7 @@ def play():
 
 def mode_change():
     global mode
-    myIterator.next()
+    mode = modes.next()
     print("MODE CHANGE", mode)
 
 

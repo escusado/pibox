@@ -14,7 +14,7 @@ RANDOM_MODE = "Random-Mode"
 TOP20_MODE = "Top#20-Mode"
 
 
-class fonts:
+class FONTS:
     SEASON = 'ogre'
     EPISODE = 'ogre'
     TITLE = 'roman'
@@ -67,16 +67,16 @@ def play():
     episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
     print(episode)
-    print(term_colors.SEASON + (Figlet(font=fonts.SEASON, width=LINE_LENGTH)
+    print(term_colors.SEASON + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
                                 ).renderText('s ' + episode[0].split('x')[0]) +
           term_colors.ENDC + "\r")
 
     print(term_colors.EPISODE +
-          (Figlet(font=fonts.EPISODE, width=LINE_LENGTH)
+          (Figlet(font=FONTS.EPISODE, width=LINE_LENGTH)
            ).renderText('e ' + episode[0].split('x')[1]) + term_colors.ENDC)
 
     print(term_colors.TITLE +
-          (Figlet(font=fonts.TITLE, width=LINE_LENGTH)
+          (Figlet(font=FONTS.TITLE, width=LINE_LENGTH)
            ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
@@ -91,7 +91,7 @@ def mode_change():
     global mode
     mode = next(modes)
     print("MODE CHANGE", mode)
-    font = fonts.RANDOM if mode == RANDOM_MODE else fonts.TOP20
+    font = FONTS.RANDOM if mode == RANDOM_MODE else FONTS.TOP20
     color = term_colors.RANDOM if mode == RANDOM_MODE else term_colors.TOP20
 
     print(color + (Figlet(font=font, width=170)).renderText(mode) +

@@ -28,10 +28,10 @@ def short_click():
         '.mkv', '').split(' - ')
 
     print(bcolors.OKGREEN +
-          (Figlet(font='ntgreek', width=120)).renderText(episode[0]) +
+          (Figlet(font='ntgreek', width=200)).renderText(episode[0]) +
           bcolors.ENDC)
     print(bcolors.OKCYAN +
-          (Figlet(font='nancyj', width=120)).renderText(episode[1]) +
+          (Figlet(font='nancyj', width=200)).renderText(episode[1]) +
           bcolors.ENDC)
 
     print("SHORT", episode)

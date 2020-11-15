@@ -36,9 +36,16 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.add_event_detect(10, GPIO.BOTH)
 
+player
+
 
 def play():
-    print("LONG RESTART IN OTHER MODE")
+    print("PLAY NEXT...")
+    global player
+
+    if player:
+        player.quit()
+
     filename = random.choice(os.listdir(directory))
     episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
@@ -58,8 +65,8 @@ def play():
                    'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
     time.sleep(2)
 
-    VIDEO_PATH = Path(directory + filename)
-    player = OMXPlayer(VIDEO_PATH)
+    player = OMXPlayer(Path(directory + filename))
+    player.set_aspect_mode('fill')
     print("\n▶ PLAYING")
 
 

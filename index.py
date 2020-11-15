@@ -82,5 +82,9 @@ GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # Setup event on pin 10 rising edge
 GPIO.add_event_detect(10, GPIO.BOTH, callback=button_callback)
 
+hold = 0
+
 while True:
-    print('foo', GPIO.input(10))
+    hold += GPIO.input(10)
+    isPressed = GPIO.input(10)
+    print(hold)

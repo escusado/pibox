@@ -81,7 +81,7 @@ def play():
     if episode[0] in top_episode_list:
         print(TERM_COLORS.TOP20 +
               (Figlet(font=FONTS.TOP20, width=LINE_LENGTH)).renderText(
-                  'Top#' + str(20 - top_episode_list.index(episode[0]))) +
+                  'T o p # ' + str(20 - top_episode_list.index(episode[0]))) +
               TERM_COLORS.ENDC + "\r")
 
     print(TERM_COLORS.SEASON +

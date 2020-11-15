@@ -9,7 +9,7 @@ from pathlib import Path
 from itertools import cycle
 from pyfiglet import Figlet
 
-LINE_LENGTH = 80
+LINE_LENGTH = 130
 RANDOM_MODE = "Random"
 TOP20_MODE = "T o p # 20"
 
@@ -17,7 +17,7 @@ TOP20_MODE = "T o p # 20"
 class FONTS:
     SEASON = 'ogre'
     EPISODE = 'ogre'
-    TITLE = 'banner'
+    TITLE = 'o8'
     RANDOM = 'cosmike'
     TOP20 = 'alligator2'
 

@@ -48,7 +48,11 @@ with open('top20.txt') as file:
 
 top20_episodes = None
 
-os.system('clear')
+with open('blinky.txt') as file:
+    for line in file:
+        print(line)
+
+print("\n\n\n")
 
 print(TERM_COLORS.APP + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
                          ).renderText('Simpsons Machine v0.1') +

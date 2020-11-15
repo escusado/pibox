@@ -80,11 +80,11 @@ def play():
 
     # render top place if any
     if episode[0] in top_episode_list:
-        isTop = 'Top#' + str(20 - top_episode_list.index(episode[0])) + ': '
+        isTop = 'Top# ' + str(20 - top_episode_list.index(episode[0])) + ': '
         color = TERM_COLORS.TOP20
 
     print(color + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
-                   ).renderText(isTop + 's ' + episode[0].replace('x', ' e')) +
+                   ).renderText(isTop + 's' + episode[0].replace('x', ' e')) +
           TERM_COLORS.ENDC + "\r")
 
     print(TERM_COLORS.TITLE +

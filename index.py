@@ -43,7 +43,7 @@ top_episode_list = []
 #     top_episode_list = file.readlines()a
 with open('top20.txt') as file:
     for line in file:
-        top_episode_list.append(line.srtip())
+        top_episode_list.append(line)
 
 top20_episodes = None
 

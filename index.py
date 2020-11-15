@@ -18,7 +18,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # Setup event on pin 10 rising edge
 GPIO.add_event_detect(10, GPIO.RISING, callback=button_down)
-GPIO.add_event_detect(10, GPIO.LOWERING, callback=button_down)
+GPIO.add_event_detect(10, GPIO.FALLING, callback=button_down)
 # Run until someone presses enter
 message = input("Press enter to quit\n\n")
 # Clean up

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+# by http://toy.codes 2020
+
 import RPi.GPIO as GPIO
 import os
 import random
@@ -39,20 +42,22 @@ mode = RANDOM_MODE
 player = None
 
 top_episode_list = []
-# with open('top20.txt') as file:
-#     top_episode_list = file.readlines()a
 with open('top20.txt') as file:
     for line in file:
         top_episode_list.append(line.strip())
 
 top20_episodes = None
 
+os.system('clear')
+
 print(TERM_COLORS.APP + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
                          ).renderText('Simpsons Machine v0.1') +
       TERM_COLORS.ENDC + "\r")
-print(TERM_COLORS.TITLE + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
-                           ).renderText('by http://toy.codes') +
+print(TERM_COLORS.SEASON + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
+                            ).renderText('by http://toy.codes') +
       TERM_COLORS.ENDC + "\r")
+
+time.sleep(1)
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)

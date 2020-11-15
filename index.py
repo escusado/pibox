@@ -5,6 +5,19 @@ import os
 import random
 from pyfiglet import Figlet
 
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+
 directory = "/home/pi/media/"
 
 now = 0
@@ -14,8 +27,10 @@ def short_click():
     episode = random.choice(os.listdir(directory)).replace('.mp4', '').replace(
         '.mkv', '').split(' - ')
 
-    print((Figlet(font='slant')).renderText(episode[0]))
-    print((Figlet(font='slant')).renderText(episode[1]))
+    print(bcolors.OKGREEN + (Figlet(font='slant')).renderText(episode[0]) +
+          bcolors.ENDC)
+    print(bcolors.OKCYAN + (Figlet(font='slant')).renderText(episode[1]) +
+          bcolors.ENDC)
 
     print("SHORT", episode)
 

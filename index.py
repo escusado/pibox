@@ -6,11 +6,11 @@ import random
 from pyfiglet import Figlet
 
 
-class bcolors:
+class term_colors:
     SEASON = '\033[95m'
-    INDEX = '\033[36m'
+    EPISODE = '\033[36m'
     TITLE = '\033[33m'
-    ENDC = '\033[0m'
+    ENDC = '\033[0m\r'
 
 
 directory = "/home/pi/media/"
@@ -22,21 +22,20 @@ def short_click():
     episode = random.choice(os.listdir(directory)).replace('.mp4', '').replace(
         '.mkv', '').split(' - ')
 
-    print(bcolors.SEASON + (Figlet(font='ogre', width=170)
-                            ).renderText('s ' + episode[0].split('x')[0]) +
-          bcolors.ENDC)
+    print(episode)
+    print(term_colors.SEASON + (Figlet(font='ogre', width=170)
+                                ).renderText('s ' + episode[0].split('x')[0]) +
+          term_colors.ENDC)
 
-    print(bcolors.INDEX + (Figlet(font='ogre', width=170)
-                           ).renderText('e ' + episode[0].split('x')[1]) +
-          bcolors.ENDC)
+    print(term_colors.EPISODE +
+          (Figlet(font='ogre', width=170)
+           ).renderText('e ' + episode[0].split('x')[1]) + term_colors.ENDC)
 
-    print(bcolors.TITLE +
+    print(term_colors.TITLE +
           (Figlet(font='big', width=170)
            ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
-                   'ó', 'o').replace('ñ', 'n')) + bcolors.ENDC)
-
-    print(episode)
+                   'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
 
 
 def mid_click():

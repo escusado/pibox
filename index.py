@@ -4,7 +4,8 @@ import os
 import random
 import sys
 import time
-import subprocess
+from omxplayer.player import OMXPlayer
+from pathlib import Path
 from pyfiglet import Figlet
 
 RANDOM_MODE = "Random-Mode"
@@ -36,51 +37,50 @@ GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.add_event_detect(10, GPIO.BOTH)
 
 
-def short_click():
+def play():
     print("LONG RESTART IN OTHER MODE")
-    os.system("pwd")
+    filename = random.choice(os.listdir(directory))
+    episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
+
+    print(episode)
+    print(term_colors.SEASON + (Figlet(font='ogre', width=170)
+                                ).renderText('s ' + episode[0].split('x')[0]) +
+          term_colors.ENDC)
+
+    print(term_colors.EPISODE +
+          (Figlet(font='ogre', width=170)
+           ).renderText('e ' + episode[0].split('x')[1]) + term_colors.ENDC)
+
+    print(term_colors.TITLE +
+          (Figlet(font='roman', width=170)
+           ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
+               'é', 'e').replace('á', 'a').replace('í', 'i').replace(
+                   'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
+    time.sleep(2)
+
+    VIDEO_PATH = Path(directory + filename)
+    player = OMXPlayer(VIDEO_PATH)
+    print("\n▶ PLAYING")
 
 
-def long_click():
-    print("LONG RESTART IN OTHER MODE")
+def mode_change():
+    print("MODE CHANGE")
 
 
 def check_action(hold_value):
     print("hold_value", hold_value)
 
     if hold_value < 20000:
-        short_click()
+        play()
         return
 
-    long_click()
+    mode_change()
 
 
 hold = 0
 zero_value_check = 0
 
-filename = random.choice(os.listdir(directory))
-episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
-
-print(episode)
-print(term_colors.SEASON +
-      (Figlet(font='ogre', width=170)).renderText('s ' +
-                                                  episode[0].split('x')[0]) +
-      term_colors.ENDC)
-
-print(term_colors.EPISODE +
-      (Figlet(font='ogre', width=170)).renderText('e ' +
-                                                  episode[0].split('x')[1]) +
-      term_colors.ENDC)
-
-print(term_colors.TITLE + (Figlet(font='roman', width=170)).renderText(
-    episode[1].replace('ü', 'u').replace('ú', 'u').replace('é', 'e').replace(
-        'á', 'a').replace('í', 'i').replace('ó', 'o').replace('ñ', 'n')) +
-      term_colors.ENDC)
-time.sleep(2)
-os.system("killall omxplayer")
-# os.system("omxplayer '" + directory + filename + "' &")
-subprocess.run(["omxplayer", directory + filename])
-print("\n▶ PLAYING")
+short_click()
 
 while True:
     if GPIO.input(10) == 0:

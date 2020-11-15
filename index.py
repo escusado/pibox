@@ -80,7 +80,7 @@ def check_action(hold_value):
 hold = 0
 zero_value_check = 0
 
-short_click()
+play()
 
 while True:
     if GPIO.input(10) == 0:

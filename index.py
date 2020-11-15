@@ -17,7 +17,7 @@ TOP20_MODE = "T o p # 20"
 class FONTS:
     SEASON = 'ogre'
     EPISODE = 'ogre'
-    TITLE = 'o8'
+    TITLE = 'roman'
     RANDOM = 'cosmike'
     TOP20 = 'alligator2'
 

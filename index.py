@@ -1,12 +1,16 @@
 # Import Raspberry Pi GPIO library
 import RPi.GPIO as GPIO
+import datetime
+
+now = null
 
 
 def button_callback(channel):
     if GPIO.input(10):
-        print("Rising edge detected on 25")
+        print("Rising edge detected on 25: " + now)
+        now = datetime.datetime.now()
     else:
-        print("Falling edge detected on 25")
+        print("Falling edge detected on 25: " + datetime.datetime.now() - now)
 
 
 # Ignore warning for now

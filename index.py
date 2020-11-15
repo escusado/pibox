@@ -93,15 +93,18 @@ zero_value_check = 0
 
 while True:
     if GPIO.input(10) == 0:
-        zero_value_check += 1
+        if hold > 0:
+            zero_value_check += 1
 
-        if zero_value_check > 5 & hold > 0
+        if zero_value_check > 5
             zero_value_check = 0
+            hold = 0
             check_action(hold)
 
         continue
     
-    hold += 1
+        else:
+            hold += 1
 
     # hold += GPIO.input(10)
     # if hold == prev_hold:

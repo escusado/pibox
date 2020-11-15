@@ -46,25 +46,34 @@ def long_click():
     print("LONG")
 
 
+# def button_callback(channel):
+#     global now
+#     if GPIO.input(10):
+#         now = datetime.datetime.now()
+#     else:
+#         time_diff = (datetime.datetime.now() - now).microseconds
+
+#         if time_diff < 4000:
+#             return
+
+#         if time_diff < 300000:
+#             short_click()
+#             return
+
+#         if time_diff < 500000:
+#             mid_click()
+#             return
+
+#         long_click()
+
+
 def button_callback(channel):
     global now
     if GPIO.input(10):
-        now = datetime.datetime.now()
+        now += 1
+        print(now)
     else:
-        time_diff = (datetime.datetime.now() - now).microseconds
-
-        if time_diff < 4000:
-            return
-
-        if time_diff < 300000:
-            short_click()
-            return
-
-        if time_diff < 500000:
-            mid_click()
-            return
-
-        long_click()
+        now = 0
 
 
 # Ignore warning for now

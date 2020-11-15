@@ -23,7 +23,7 @@ class FONTS:
     TITLE = 'roman'
     RANDOM = 'cosmike'
     TOP20 = 'alligator2'
-    APP = 'speed'
+    APP = 'basic'
 
 
 class TERM_COLORS:
@@ -53,11 +53,11 @@ os.system('clear')
 print(TERM_COLORS.APP + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
                          ).renderText('Simpsons Machine v0.1') +
       TERM_COLORS.ENDC + "\r")
-print(TERM_COLORS.RANDOM + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
+print(TERM_COLORS.RANDOM + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
                             ).renderText('by http://toy.codes') +
       TERM_COLORS.ENDC + "\r")
 
-time.sleep(1)
+time.sleep(5)
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)

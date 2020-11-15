@@ -23,15 +23,15 @@ def short_click():
         '.mkv', '').split(' - ')
 
     print(bcolors.SEASON + (Figlet(font='ogre', width=170)
-                            ).renderText('s' + episode[0].split('x')[0]) +
+                            ).renderText('s ' + episode[0].split('x')[0]) +
           bcolors.ENDC)
 
     print(bcolors.INDEX + (Figlet(font='ogre', width=170)
-                           ).renderText('e' + episode[0].split('x')[1]) +
+                           ).renderText('e ' + episode[0].split('x')[1]) +
           bcolors.ENDC)
 
     print(bcolors.TITLE +
-          (Figlet(font='nancyj', width=170)
+          (Figlet(font='big', width=170)
            ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + bcolors.ENDC)

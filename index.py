@@ -13,11 +13,7 @@ now = 0
 def short_click():
     episode = random.choice(os.listdir(directory))
     f = Figlet(font='slant')
-    word = episode
-    curr_word = ''
-    for char in word:
-        curr_word += char
-        print(f.renderText(curr_word))
+    print(f.renderText(episode))
 
     print("SHORT", episode)
 

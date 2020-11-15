@@ -18,7 +18,7 @@ def short_click():
     for char in word:
         os.system('reset')  #assuming the platform is linux, clears the screen
         curr_word += char
-        print f.renderText(curr_word)
+        print(f.renderText(curr_word))
 
     print("SHORT", episode)
 

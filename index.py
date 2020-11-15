@@ -17,9 +17,9 @@ TOP20_MODE = "Top#20-Mode"
 class FONTS:
     SEASON = 'ogre'
     EPISODE = 'ogre'
-    TITLE = 'roman'
+    TITLE = 'banner'
     RANDOM = 'cosmike'
-    TOP20 = 'larry3d'
+    TOP20 = 'alligator2'
 
 
 class TERM_COLORS:
@@ -27,7 +27,7 @@ class TERM_COLORS:
     EPISODE = '\033[94m'
     TITLE = '\033[33m'
     RANDOM = '\033[32m'
-    TOP20 = '\033[31m'
+    TOP20 = '\033[35m'
     ENDC = '\033[0m\r'
 
 

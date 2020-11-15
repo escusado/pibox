@@ -13,8 +13,7 @@ now = 0
 def short_click():
     episode = random.choice(os.listdir(directory)).replace('.mp4', '').replace(
         '.mkv', '')
-    f = Figlet(font='slant')
-    print(f.renderText(episode))
+    print((Figlet(font='slant')).renderText(episode))
 
     print("SHORT", episode)
 

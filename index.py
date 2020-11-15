@@ -78,6 +78,16 @@ def button_callback(channel):
 def check_action(hold_value):
     print("hold_value", hold_value)
 
+    if hold_value < 20000:
+        short_click()
+        return
+
+    if hold_value < 50000:
+        mid_click()
+        return
+
+    long_click()
+
 
 # Ignore warning for now
 GPIO.setwarnings(False)

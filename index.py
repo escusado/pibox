@@ -9,6 +9,7 @@ from pyfiglet import Figlet
 class bcolors:
     TITLE = '\033[95m'
     INDEX = '\033[33m'
+    ENDC = '\033[0m'
 
 
 directory = "/home/pi/media/"

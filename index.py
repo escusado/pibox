@@ -45,9 +45,9 @@ with open('top20.txt') as file:
 
 top20_episodes = None
 
-print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
-print("🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀")
-print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀\n\n\n")
+print(color + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
+               ).renderText('Simpsons machine v0.1 by http://toy.codes 2020') +
+      TERM_COLORS.ENDC + "\r")
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)

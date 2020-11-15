@@ -21,8 +21,8 @@ print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀�
 print("🚀🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
 
-print(term_colors.EPISODE + (Figlet(font='3-d', width=170)).renderText(mode) +
-      term_colors.ENDC)
+print(term_colors.EPISODE +
+      (Figlet(font='cosmike', width=170)).renderText(mode) + term_colors.ENDC)
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)

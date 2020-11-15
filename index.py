@@ -58,7 +58,7 @@ def play():
     if player:
         player.quit()
 
-    filename = get_random() if mode == TOP20_MODE else get_top()
+    filename = get_top() if mode == TOP20_MODE else get_random()
     episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
     print(episode)

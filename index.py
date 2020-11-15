@@ -15,10 +15,7 @@ class term_colors:
 
 directory = "/home/pi/media/"
 
-mode = 'normal'
-
-if sys.argv[1]:
-    mode = sys.argv[1]
+mode = sys.argv[1] if len(sys.argv) > 1 else "normal"
 
 print("🚀 Simpsons Machine v0.1", mode)
 

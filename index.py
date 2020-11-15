@@ -7,7 +7,8 @@ from pyfiglet import Figlet
 
 
 class bcolors:
-    INDEX = '\033[95m'
+    SEASON = '\033[95m'
+    INDEX = '\033[36m'
     TITLE = '\033[33m'
     ENDC = '\033[0m'
 
@@ -21,8 +22,8 @@ def short_click():
     episode = random.choice(os.listdir(directory)).replace('.mp4', '').replace(
         '.mkv', '').split(' - ')
 
-    print(bcolors.INDEX + (Figlet(font='ogre', width=170)
-                           ).renderText('s' + episode[0].replace('x', ' e')) +
+    print(bcolors.SEASON + (Figlet(font='ogre', width=170)).renderText(
+        's' + episode[0].replace('x', bcolors.ENDC + bcolors.INDEX + ' e')) +
           bcolors.ENDC)
 
     print(bcolors.TITLE +

@@ -60,7 +60,8 @@ def get_top():
     current_top_episode += 1
     print("next_in_list", next_in_list)
     next_top_episode = [i for i in os.listdir(directory) if next_in_list in i]
-
+    for i in os.listdir(directory):
+        print(next_in_list in i, i)
     print("next_top_episode", next_top_episode)
     return next_top_episode
 

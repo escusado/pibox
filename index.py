@@ -94,6 +94,7 @@ def play():
 
     player = OMXPlayer(Path(directory + filename))
     player.set_aspect_mode('fill')
+    player.exitEvent += lambda _, _: play()
     print("\n▶ PLAYING\n\n\n")
 
 

@@ -39,9 +39,9 @@ mode = RANDOM_MODE
 player = None
 
 top_episode_list = []
+current_top_episode = 0
 with open('top20.txt') as file:
     top_episode_list = file.readlines()
-top20_episodes = cycle(top_episode_list)
 
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀")
@@ -54,7 +54,8 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 
 
 def get_top():
-    next_in_list = next(top20_episodes)
+    next_in_list = top_episode_list[current_top_episode]
+    current_top_episode += 1
     print("next_in_list", next_in_list)
     next_top_episode = [
         i for i in os.listdir(directory) if i.startswith(next_in_list)
@@ -102,6 +103,9 @@ def mode_change():
     mode = next(modes)
     font = FONTS.RANDOM if mode == RANDOM_MODE else FONTS.TOP20
     color = TERM_COLORS.RANDOM if mode == RANDOM_MODE else TERM_COLORS.TOP20
+
+    if mode == TOP20_MODE:
+        current_top_episode = 0
 
     print(color + (Figlet(font=font, width=170)).renderText(mode) +
           TERM_COLORS.ENDC)

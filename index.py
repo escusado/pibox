@@ -20,6 +20,7 @@ class FONTS:
     TITLE = 'roman'
     RANDOM = 'cosmike'
     TOP20 = 'alligator2'
+    APP = 'smisome1'
 
 
 class TERM_COLORS:
@@ -27,6 +28,7 @@ class TERM_COLORS:
     RANDOM = '\033[32m'
     TITLE = '\033[33m'
     ENDC = '\033[0m\r'
+    APP = '\033[35m'
 
 
 directory = "/home/pi/media/"
@@ -45,10 +47,10 @@ with open('top20.txt') as file:
 
 top20_episodes = None
 
-print(TERM_COLORS.TOP20 + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
-                           ).renderText('Simpsons Machine v0.1') +
+print(TERM_COLORS.APP + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
+                         ).renderText('Simpsons Machine v0.1') +
       TERM_COLORS.ENDC + "\r")
-print(TERM_COLORS.TITLE + (Figlet(font=FONTS.RANDOM, width=LINE_LENGTH)
+print(TERM_COLORS.TITLE + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
                            ).renderText('by http://toy.codes') +
       TERM_COLORS.ENDC + "\r")
 

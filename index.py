@@ -71,8 +71,8 @@ def button_callback(channel):
     global now
     if GPIO.input(10):
         now += 1
-        print(now)
     else:
+        print(now)
         now = 0
 
 

@@ -6,6 +6,9 @@ import sys
 import time
 from pyfiglet import Figlet
 
+RANDOM_MODE = "Random-Mode"
+TOP20_MODE = "Top#20-Mode"
+
 
 class term_colors:
     SEASON = '\033[95m'
@@ -16,7 +19,7 @@ class term_colors:
 
 directory = "/home/pi/media/"
 
-mode = sys.argv[1] if len(sys.argv) > 1 else "Random-Mode"
+mode = sys.argv[1] if len(sys.argv) > 1 else RANDOM_MODE
 
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀")
@@ -33,8 +36,8 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 
 
 def short_click():
-    episode = random.choice(os.listdir(directory)).replace('.mp4', '').replace(
-        '.mkv', '').split(' - ')
+    filename = random.choice(os.listdir(directory))
+    episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
     print(episode)
     print(term_colors.SEASON + (Figlet(font='ogre', width=170)
@@ -51,7 +54,7 @@ def short_click():
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
 
-    time.sleep(2)
+    os.system("omxplayer " + directory + filename + " ")
 
 
 def long_click():

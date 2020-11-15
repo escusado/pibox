@@ -27,11 +27,11 @@ def button_callback(channel):
         if time_diff < 1000:
             return
 
-        if time_diff < 100000:
+        if time_diff < 300000:
             short_click()
             return
 
-        if time_diff < 300000:
+        if time_diff < 500000:
             mid_click()
             return
 

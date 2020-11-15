@@ -45,20 +45,19 @@ top_episode_list = []
 with open('top20.txt') as file:
     for line in file:
         top_episode_list.append(line.strip())
-
 top20_episodes = None
+
+print("\n\n\n")
 
 with open('logo.txt') as file:
     for line in file:
         print(line + "\r")
 
-print("\n\n\n")
-
 print(TERM_COLORS.APP + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
                          ).renderText('Simpsons Machine v0.1') +
       TERM_COLORS.ENDC + "\r")
-print(TERM_COLORS.RANDOM + 'by http://toy.codes') +
-      TERM_COLORS.ENDC + "\r".center(40))
+print(TERM_COLORS.RANDOM + 'by http://toy.codes' + TERM_COLORS.ENDC +
+      "\r".center(40))
 
 time.sleep(5)
 

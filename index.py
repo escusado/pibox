@@ -53,7 +53,7 @@ def short_click():
            ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
-
+    time.sleep(2)
     os.system("omxplayer " + directory + filename + " ")
 
 

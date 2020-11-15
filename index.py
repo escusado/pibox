@@ -9,7 +9,7 @@ from pathlib import Path
 from itertools import cycle
 from pyfiglet import Figlet
 
-LINE_LENGTH = 130
+LINE_LENGTH = 128
 RANDOM_MODE = "Random"
 TOP20_MODE = "T o p # 20"
 
@@ -76,17 +76,20 @@ def play():
 
     filename = get_top() if mode == TOP20_MODE else get_random()
     episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
+    color = TERM_COLORS.SEASON
+    isTop = ''
 
     # render top place if any
     if episode[0] in top_episode_list:
-        print(TERM_COLORS.TOP20 +
-              (Figlet(font=FONTS.TOP20, width=LINE_LENGTH)).renderText(
-                  'T o p # ' + str(20 - top_episode_list.index(episode[0]))) +
-              TERM_COLORS.ENDC + "\r")
+        isTop = 'T o p # ' + str(20 - top_episode_list.index(episode[0]))
+        color = TERM_COLORS.TOP20
+        # print(TERM_COLORS.TOP20 +
+        #       (Figlet(font=FONTS.TOP20, width=LINE_LENGTH)).renderText(
+        #          ) +
+        #       TERM_COLORS.ENDC + "\r")
 
-    print(TERM_COLORS.SEASON +
-          (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
-           ).renderText('s ' + episode[0].replace('x', ' e')) +
+    print(color + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
+                   ).renderText(isTop + 's ' + episode[0].replace('x', ' e')) +
           TERM_COLORS.ENDC + "\r")
 
     print(TERM_COLORS.TITLE +

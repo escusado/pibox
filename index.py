@@ -40,9 +40,7 @@ player = None
 
 top_episode_list = []
 with open('top20.txt') as my_list:
-    for line in my_list:
-        top_episode_list.append(line)
-top20_episodes = cycle(top_episode_list)
+    top_episode_list = my_file.readlines()
 
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀")

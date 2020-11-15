@@ -17,9 +17,11 @@ directory = "/home/pi/media/"
 
 mode = sys.argv[1] if len(sys.argv) > 1 else "Random-Mode"
 
-print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
+print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
+print("🚀🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
+print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
 
-print(term_colors.EPISODE + (Figlet(font='ogre', width=170)).renderText(mode) +
+print(term_colors.EPISODE + (Figlet(font='3-d', width=170)).renderText(mode) +
       term_colors.ENDC)
 
 GPIO.setwarnings(False)

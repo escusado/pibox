@@ -10,8 +10,8 @@ from itertools import cycle
 from pyfiglet import Figlet
 
 LINE_LENGTH = 128
-RANDOM_MODE = "Random"
-TOP20_MODE = "T o p # 20"
+RANDOM_MODE = "Random Mode"
+TOP20_MODE = "T o p # 20 Mode"
 
 
 class FONTS:
@@ -23,9 +23,9 @@ class FONTS:
 
 class TERM_COLORS:
     SEASON = '\033[35m'
-    TITLE = '\033[36m'
+    TOP20 = '\033[36m'
     RANDOM = '\033[32m'
-    TOP20 = '\033[33m'
+    TITLE = '\033[33m'
     ENDC = '\033[0m\r'
 
 
@@ -80,8 +80,7 @@ def play():
 
     # render top place if any
     if episode[0] in top_episode_list:
-        isTop = 'T o p # ' + str(20 -
-                                 top_episode_list.index(episode[0])) + ': '
+        isTop = 'Top#' + str(20 - top_episode_list.index(episode[0])) + ': '
         color = TERM_COLORS.TOP20
 
     print(color + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)

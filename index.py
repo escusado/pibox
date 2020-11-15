@@ -1,6 +1,5 @@
 # Import Raspberry Pi GPIO library
 import RPi.GPIO as GPIO
-import datetime
 import os
 import random
 from pyfiglet import Figlet
@@ -15,9 +14,12 @@ class term_colors:
 
 directory = "/home/pi/media/"
 
-now = 0
-
 print("🚀 Simpsons Machine v0.1")
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.add_event_detect(10, GPIO.BOTH)
 
 
 def short_click():
@@ -40,39 +42,11 @@ def short_click():
                    'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
 
 
-def mid_click():
-    print("MID")
-
-
 def long_click():
     print("LONG")
-
-
-# def button_callback(channel):
-#     global now
-#     if GPIO.input(10):
-#         now = datetime.datetime.now()
-#     else:
-#         time_diff = (datetime.datetime.now() - now).microseconds
-
-#         if time_diff < 4000:
-#             return
-
-#         if time_diff < 300000:
-#             short_click()
-#             return
-
-#         if time_diff < 500000:
-#             mid_click()
-#             return
-
-#         long_click()
-
-
-def button_callback(channel):
-    global now
-    now += 1
-    print(now)
+     print(term_colors.TITLE +
+          (Figlet(font='roman', width=170)
+           ).renderText('Top #20') + term_colors.ENDC)
 
 
 def check_action(hold_value):
@@ -82,23 +56,9 @@ def check_action(hold_value):
         short_click()
         return
 
-    if hold_value < 50000:
-        mid_click()
-        return
-
     long_click()
 
 
-# Ignore warning for now
-GPIO.setwarnings(False)
-# Use physical pin numbering
-GPIO.setmode(GPIO.BOARD)
-# Set pin 10 to be an input pin and set initial value to be pulled low (off)
-GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-# Setup event on pin 10 rising edge
-GPIO.add_event_detect(10, GPIO.BOTH)
-
-prev_hold = 0
 hold = 0
 zero_value_check = 0
 
@@ -112,23 +72,5 @@ while True:
             zero_value_check = 0
             hold = 0
 
-        continue
-
     else:
         hold += 1
-
-    # hold += GPIO.input(10)
-    # if hold == prev_hold:
-    #     print("hold", hold)
-    #     print("hold == prev_hold")
-    #     same_value_check += 1
-    #     continue
-
-    # if same_value_check > 3:
-    #     print("hold", hold)
-    #     print("same_value_check > 3")
-    #     check_action(hold)
-    #     hold = 0
-    #     same_value_check = 0
-
-    # prev_hold = hold

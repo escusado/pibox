@@ -11,7 +11,7 @@ from pyfiglet import Figlet
 
 LINE_LENGTH = 128
 RANDOM_MODE = "Random Mode"
-TOP20_MODE = "T o p # 20 Mode"
+TOP20_MODE = "T o p # 20 M o d e"
 
 
 class FONTS:
@@ -22,7 +22,6 @@ class FONTS:
 
 
 class TERM_COLORS:
-    SEASON = '\033[35m'
     TOP20 = '\033[36m'
     RANDOM = '\033[32m'
     TITLE = '\033[33m'
@@ -75,12 +74,12 @@ def play():
 
     filename = get_top() if mode == TOP20_MODE else get_random()
     episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
-    color = TERM_COLORS.SEASON
+    color = TERM_COLORS.RANDOM
     isTop = ''
 
     # render top place if any
     if episode[0] in top_episode_list:
-        isTop = 'Top# ' + str(20 - top_episode_list.index(episode[0])) + ': '
+        isTop = 'Top# ' + str(20 - top_episode_list.index(episode[0])) + ' : '
         color = TERM_COLORS.TOP20
 
     print(color + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)

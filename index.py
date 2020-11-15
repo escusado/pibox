@@ -48,7 +48,7 @@ with open('top20.txt') as file:
 
 top20_episodes = None
 
-with open('blinky.txt') as file:
+with open('logo.txt') as file:
     for line in file:
         print(line)
 

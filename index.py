@@ -94,7 +94,6 @@ def play():
 
     player = OMXPlayer(Path(directory + filename))
     player.set_aspect_mode('fill')
-    player.exitEvent += lambda _, _: play()
     print("\n▶ PLAYING\n\n\n")
 
 
@@ -129,6 +128,8 @@ zero_value_check = 0
 mode_change()
 
 while True:
+    print(player.playback_status())
+
     if GPIO.input(10) == 0:
         if hold > 0:
             zero_value_check += 1

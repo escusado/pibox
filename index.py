@@ -24,7 +24,7 @@ class FONTS:
 
 class TERM_COLORS:
     SEASON = '\033[95m'
-    TITLE = '\033[93m'
+    TITLE = '\033[34m'
     RANDOM = '\033[32m'
     TOP20 = '\033[33m'
     ENDC = '\033[0m\r'
@@ -81,12 +81,9 @@ def play():
 
     # render top place if any
     if episode[0] in top_episode_list:
-        isTop = 'T o p # ' + str(20 - top_episode_list.index(episode[0]))
+        isTop = 'T o p # ' + str(20 -
+                                 top_episode_list.index(episode[0])) + ': '
         color = TERM_COLORS.TOP20
-        # print(TERM_COLORS.TOP20 +
-        #       (Figlet(font=FONTS.TOP20, width=LINE_LENGTH)).renderText(
-        #          ) +
-        #       TERM_COLORS.ENDC + "\r")
 
     print(color + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
                    ).renderText(isTop + 's ' + episode[0].replace('x', ' e')) +

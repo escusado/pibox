@@ -58,11 +58,9 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 
 def get_top():
     next_in_list = next(top20_episodes)
-    print("next_in_list", next_in_list)
     next_top_episode = [
         i for i in os.listdir(directory) if i.startswith(next_in_list)
     ][0]
-    print("next_top_episode", next_top_episode)
     return next_top_episode
 
 
@@ -71,7 +69,6 @@ def get_random():
 
 
 def play():
-    print("PLAY NEXT...")
     global player
 
     if player:
@@ -101,7 +98,7 @@ def play():
 
     # player = OMXPlayer(Path(directory + filename))
     # player.set_aspect_mode('fill')
-    print("\n▶ PLAYING")
+    print("\n▶ PLAYING\n\n\n")
 
 
 def mode_change():

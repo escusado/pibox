@@ -4,9 +4,10 @@ import RPi.GPIO as GPIO
 
 def button_callback(channel):
     if GPIO.input(10):
-    print("Rising edge detected on 25")
+        print("Rising edge detected on 25")
     else:
-    print("Falling edge detected on 25")
+        print("Falling edge detected on 25")
+
 
 # Ignore warning for now
 GPIO.setwarnings(False)

@@ -6,6 +6,7 @@ import sys
 import time
 from omxplayer.player import OMXPlayer
 from pathlib import Path
+from itertools import cycle
 from pyfiglet import Figlet
 
 LINE_LENGTH = 80
@@ -22,7 +23,7 @@ class term_colors:
 
 directory = "/home/pi/media/"
 
-mode = RANDOM_MODE
+mode = cycle([RANDOM_MODE, TOP20_MODE])
 
 player = None
 
@@ -81,7 +82,8 @@ def play():
 
 
 def mode_change():
-    mode = RANDOM_MODE if mode == RANDOM_MODE else TOP20_MODE
+    global mode
+    myIterator.next()
     print("MODE CHANGE", mode)
 
 

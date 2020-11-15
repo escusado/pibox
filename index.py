@@ -1,44 +1,25 @@
-#!/usr/bin/python
-
+# Import Raspberry Pi GPIO library
 import RPi.GPIO as GPIO
-import time
-import os
-import random
-
-buttonPin = 10 
-
-directory = "/home/pi/media/"
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(buttonPin, GPIO.IN)
-
-def playEpisode():
-	episode = random.choice(os.listdir(directory))
-	cmd = "nohup omxplayer -b -o hdmi "+"'"+directory+episode+"' &"
-	os.system('killall omxplayer.bin')
-	os.system(cmd)
 
 
-try:
+def button_down(channel):
+    print("DOWN")
 
-    # measure the time the button is pressed as timeA
-    GPIO.wait_for_edge(buttonPin, GPIO.RISING)
-    timeA = time.time()
 
-    # measure the time the button is released as timeB
-    GPIO.wait_for_edge(buttonPin, GPIO.FALLING)
-    timeB = time.time()
+def button_up(channel):
+    print("UP")
 
-    # take the first time away from the second time, to get the difference
-    timeDifference = timeB - timeA
 
-    # if the difference in times is more than 4 seconds, shutdown, or else play an episode and restart this script
-    if timeDifference > 4:
-        os.system('sudo shutdown now')
-    else:
-        playEpisode()
-        # point this to the location of this file
-        os.system('sudo python /home/pi/buttonscript.py')
-
-except KeyboardInterrupt:  
-    GPIO.cleanup() 
+# Ignore warning for now
+GPIO.setwarnings(False)
+# Use physical pin numbering
+GPIO.setmode(GPIO.BOARD)
+# Set pin 10 to be an input pin and set initial value to be pulled low (off)
+GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+# Setup event on pin 10 rising edge
+GPIO.add_event_detect(10, GPIO.RISING, callback=button_down)
+GPIO.add_event_detect(10, GPIO.LOWERING, callback=button_down)
+# Run until someone presses enter
+message = input("Press enter to quit\n\n")
+# Clean up
+GPIO.cleanup()

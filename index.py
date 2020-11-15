@@ -135,7 +135,6 @@ def mode_change():
 
 
 def check_action(hold_value):
-    print('>>>>', hold_value)
     if hold_value < 50:
         play()
         return

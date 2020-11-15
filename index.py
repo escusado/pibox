@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import datetime
 import os
 import random
+from pyfiglet import Figlet
 
 directory = "/home/pi/media/"
 
@@ -11,6 +12,14 @@ now = 0
 
 def short_click():
     episode = random.choice(os.listdir(directory))
+    f = Figlet(font='slant')
+    word = episode
+    curr_word = ''
+    for char in word:
+        os.system('reset')  #assuming the platform is linux, clears the screen
+        curr_word += char
+        print f.renderText(curr_word)
+
     print("SHORT", episode)
 
 

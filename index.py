@@ -129,7 +129,7 @@ def mode_change():
     print(color + (Figlet(font=font, width=170)).renderText(mode) +
           TERM_COLORS.ENDC)
     print("\n\n\n")
-    time.sleep(1)
+    time.sleep(3)
     play()
 
 

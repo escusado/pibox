@@ -50,7 +50,7 @@ top20_episodes = None
 
 with open('logo.txt') as file:
     for line in file:
-        print(line.strip())
+        print(line + "\r")
 
 print("\n\n\n")
 

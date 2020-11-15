@@ -17,7 +17,7 @@ directory = "/home/pi/media/"
 
 now = 0
 
-    print("🚀 Simpsons Machine v0.1")
+print("🚀 Simpsons Machine v0.1")
 
 def short_click():
     episode = random.choice(os.listdir(directory)).replace('.mp4', '').replace(
@@ -102,9 +102,9 @@ while True:
             check_action(hold)
 
         continue
-    
-        else:
-            hold += 1
+
+    else:
+        hold += 1
 
     # hold += GPIO.input(10)
     # if hold == prev_hold:

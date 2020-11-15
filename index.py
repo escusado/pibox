@@ -37,7 +37,8 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 
 def short_click():
     filename = random.choice(os.listdir(directory))
-    episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
+    episode = filename
+    episode = episode.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
     print(episode)
     print(term_colors.SEASON + (Figlet(font='ogre', width=170)

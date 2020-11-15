@@ -44,9 +44,9 @@ def short_click():
 
 def long_click():
     print("LONG")
-     print(term_colors.TITLE +
-          (Figlet(font='roman', width=170)
-           ).renderText('Top #20') + term_colors.ENDC)
+    print(term_colors.TITLE +
+          (Figlet(font='roman', width=170)).renderText('Top #20') +
+          term_colors.ENDC)
 
 
 def check_action(hold_value):

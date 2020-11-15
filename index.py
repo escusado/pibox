@@ -22,8 +22,12 @@ def short_click():
     episode = random.choice(os.listdir(directory)).replace('.mp4', '').replace(
         '.mkv', '').split(' - ')
 
-    print(bcolors.SEASON + (Figlet(font='ogre', width=170)).renderText(
-        's' + episode[0].replace('x', bcolors.ENDC + bcolors.INDEX + ' e')) +
+    print(bcolors.SEASON + (Figlet(font='ogre', width=170)
+                            ).renderText('s' + episode[0].split('x')[0]) +
+          bcolors.ENDC)
+
+    print(bcolors.INDEX + (Figlet(font='ogre', width=170)
+                           ).renderText('e' + episode[0].split('x')[1]) +
           bcolors.ENDC)
 
     print(bcolors.TITLE +

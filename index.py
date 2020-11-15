@@ -15,7 +15,7 @@ TOP20_MODE = "T o p # 20 Mode"
 
 
 class FONTS:
-    SEASON = 'slant'
+    SEASON = 'small'
     TITLE = 'roman'
     RANDOM = 'cosmike'
     TOP20 = 'alligator2'
@@ -92,7 +92,6 @@ def play():
            ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + TERM_COLORS.ENDC)
-    time.sleep(2)
 
     player = OMXPlayer(Path(directory + filename))
     player.set_aspect_mode('fill')
@@ -112,7 +111,7 @@ def mode_change():
     print(color + (Figlet(font=font, width=170)).renderText(mode) +
           TERM_COLORS.ENDC)
     print("\n\n\n")
-    time.sleep(2)
+    time.sleep(1)
     play()
 
 

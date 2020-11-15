@@ -2,6 +2,7 @@
 import RPi.GPIO as GPIO
 import os
 import random
+import sys
 from pyfiglet import Figlet
 
 
@@ -14,7 +15,7 @@ class term_colors:
 
 directory = "/home/pi/media/"
 
-print("🚀 Simpsons Machine v0.1")
+print("🚀 Simpsons Machine v0.1", sys.argv[0])
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)

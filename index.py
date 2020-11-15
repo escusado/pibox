@@ -96,8 +96,8 @@ def play():
                    'ó', 'o').replace('ñ', 'n')) + TERM_COLORS.ENDC)
     time.sleep(2)
 
-    # player = OMXPlayer(Path(directory + filename))
-    # player.set_aspect_mode('fill')
+    player = OMXPlayer(Path(directory + filename))
+    player.set_aspect_mode('fill')
     print("\n▶ PLAYING\n\n\n")
 
 

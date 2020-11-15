@@ -93,12 +93,13 @@ same_value_check = 0
 while True:
     hold += GPIO.input(10)
     print("hold", hold)
+
     if hold == 0:
-        next
+        continue
 
     if hold == prev_hold:
         same_value_check += 1
-        next
+        continue
 
     if same_value_check == 3:
         check_action(hold)

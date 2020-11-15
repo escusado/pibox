@@ -8,6 +8,7 @@ from omxplayer.player import OMXPlayer
 from pathlib import Path
 from pyfiglet import Figlet
 
+LINE_LENGTH = 80
 RANDOM_MODE = "Random-Mode"
 TOP20_MODE = "Top#20-Mode"
 
@@ -23,6 +24,8 @@ directory = "/home/pi/media/"
 
 mode = sys.argv[1] if len(sys.argv) > 1 else RANDOM_MODE
 
+player = None
+
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀\n\n\n")
@@ -36,8 +39,6 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.add_event_detect(10, GPIO.BOTH)
 
-player = None
-
 
 def play():
     print("PLAY NEXT...")
@@ -50,16 +51,16 @@ def play():
     episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
     print(episode)
-    print(term_colors.SEASON + (Figlet(font='ogre', width=170)
+    print(term_colors.SEASON + (Figlet(font='ogre', width=LINE_LENGTH)
                                 ).renderText('s ' + episode[0].split('x')[0]) +
-          term_colors.ENDC)
+          term_colors.ENDC + "\r")
 
     print(term_colors.EPISODE +
-          (Figlet(font='ogre', width=170)
+          (Figlet(font='ogre', width=LINE_LENGTH)
            ).renderText('e ' + episode[0].split('x')[1]) + term_colors.ENDC)
 
     print(term_colors.TITLE +
-          (Figlet(font='roman', width=170)
+          (Figlet(font='roman', width=LINE_LENGTH)
            ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)

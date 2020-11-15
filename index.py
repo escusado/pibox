@@ -15,7 +15,7 @@ class term_colors:
 
 directory = "/home/pi/media/"
 
-print("🚀 Simpsons Machine v0.1", sys.argv[0])
+print("🚀 Simpsons Machine v0.1", sys.argv[1])
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)

@@ -12,6 +12,7 @@ from pyfiglet import Figlet
 LINE_LENGTH = 128
 RANDOM_MODE = "Random Mode"
 TOP20_MODE = "T o p # 20 M o d e"
+STOPPED_STATUS = "Stopped"
 
 
 class FONTS:
@@ -128,7 +129,8 @@ zero_value_check = 0
 mode_change()
 
 while True:
-    print(player.playback_status())
+    if player.playback_status() === STOPPED_STATUS:
+        play()
 
     if GPIO.input(10) == 0:
         if hold > 0:

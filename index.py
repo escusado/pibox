@@ -74,7 +74,7 @@ def button_callback(channel):
 
 
 def check_action(hold_value):
-    print("hold", hold_value)
+    print("hold_value", hold_value)
 
 
 # Ignore warning for now
@@ -92,7 +92,7 @@ same_value_check = 0
 
 while True:
     hold += GPIO.input(10)
-
+    print("hold", hold)
     if hold == 0:
         next
 

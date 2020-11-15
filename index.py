@@ -39,8 +39,12 @@ mode = RANDOM_MODE
 player = None
 
 top_episode_list = []
+# with open('top20.txt') as file:
+#     top_episode_list = file.readlines()a
 with open('top20.txt') as file:
-    top_episode_list = file.readlines()
+    for line in file:
+        top_episode_list.append(line).strip()
+
 top20_episodes = None
 
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
@@ -57,7 +61,7 @@ def get_top():
     next_in_list = next(top20_episodes)
     print("next_in_list", next_in_list)
     next_top_episode = [
-        i for i in os.listdir(directory) if i.startswith(next_in_list.strip())
+        i for i in os.listdir(directory) if i.startswith(next_in_list
     ][0]
     print("next_top_episode", next_top_episode)
     return next_top_episode

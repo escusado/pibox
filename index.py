@@ -45,8 +45,11 @@ with open('top20.txt') as file:
 
 top20_episodes = None
 
-print(color + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
-               ).renderText('Simpsons machine v0.1 by http://toy.codes 2020') +
+print(TERM_COLORS.TOP20 + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
+                           ).renderText('Simpsons Machine v0.1') +
+      TERM_COLORS.ENDC + "\r")
+print(TERM_COLORS.TITLE + (Figlet(font=FONTS.RANDOM, width=LINE_LENGTH)
+                           ).renderText('by http://toy.codes') +
       TERM_COLORS.ENDC + "\r")
 
 GPIO.setwarnings(False)

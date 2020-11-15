@@ -86,7 +86,7 @@ def play():
         print(TERM_COLORS.SEASON +
               (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
                ).renderText('Episode Top#' +
-                            str(top_episode_list.index(episode[0]) + 1)) +
+                            str(20 - top_episode_list.index(episode[0]))) +
               TERM_COLORS.ENDC + "\r")
 
     print(TERM_COLORS.SEASON +

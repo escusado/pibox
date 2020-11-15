@@ -84,8 +84,7 @@ def play():
 
 def mode_change():
     global mode
-    global modes
-    mode = modes.next()
+    mode = next(modes)
     print("MODE CHANGE", mode)
 
 

@@ -44,7 +44,7 @@ top_episode_list = []
 with open('top20.txt') as file:
     for line in file:
         top_episode_list.append(line.strip())
-
+print(top_episode_list)
 top20_episodes = None
 
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")

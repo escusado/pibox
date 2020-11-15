@@ -91,7 +91,7 @@ def mode_change():
     global mode
     mode = next(modes)
     print("MODE CHANGE", mode)
-    font = font.RANDOM if mode == RANDOM_MODE else font.TOP20
+    font = fonts.RANDOM if mode == RANDOM_MODE else fonts.TOP20
     color = term_colors.RANDOM if mode == RANDOM_MODE else term_colors.TOP20
 
     print(color + (Figlet(font=font, width=170)).renderText(mode) +

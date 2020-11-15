@@ -2,11 +2,14 @@
 import RPi.GPIO as GPIO
 import datetime
 
+directory = "/home/pi/media/"
+
 now = 0
 
 
 def short_click():
-    print("SHORT")
+    episode = random.choice(os.listdir(directory))
+    print("SHORT", episode)
 
 
 def mid_click():
@@ -24,7 +27,7 @@ def button_callback(channel):
     else:
         time_diff = (datetime.datetime.now() - now).microseconds
 
-        if time_diff < 5000:
+        if time_diff < 4000:
             return
 
         if time_diff < 300000:

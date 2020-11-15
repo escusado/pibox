@@ -54,9 +54,12 @@ with open('logo.txt') as file:
 
 print(TERM_COLORS.APP + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
                          ).renderText('Simpsons Machine v0.1') +
-      TERM_COLORS.ENDC + "\r")
-print(TERM_COLORS.RANDOM + 'by http://toy.codes' + TERM_COLORS.ENDC +
-      "\r".center(40))
+      TERM_COLORS.ENDC)
+
+print(
+    TERM_COLORS.RANDOM +
+    '                                                     [by http://toy.codes]'
+    + TERM_COLORS.ENDC)
 
 time.sleep(5)
 

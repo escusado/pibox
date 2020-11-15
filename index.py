@@ -18,12 +18,10 @@ directory = "/home/pi/media/"
 mode = sys.argv[1] if len(sys.argv) > 1 else "Random-Mode"
 
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
-print("🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀")
+print("🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀\n\n\n")
-
 print(term_colors.EPISODE +
       (Figlet(font='cosmike', width=170)).renderText(mode) + term_colors.ENDC)
-
 print("\n\n\n")
 
 GPIO.setwarnings(False)
@@ -68,6 +66,8 @@ def check_action(hold_value):
 
 hold = 0
 zero_value_check = 0
+
+short_click()
 
 while True:
     if GPIO.input(10) == 0:

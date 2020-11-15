@@ -49,8 +49,12 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 
 
 def get_top():
-    print("top")
-    return '07x20 - Bart recorre el mundo.mp4'
+    next_in_list = '03x04'
+    next_top_episode = [
+        i for i in os.listdir(directory) if i.startswith(next_in_list)
+    ]
+    print("top", next_top_episode)
+    return next_top_episode
 
 
 def get_random():
@@ -67,7 +71,6 @@ def play():
     filename = get_top() if mode == TOP20_MODE else get_random()
     episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
-    print(episode)
     print(TERM_COLORS.SEASON + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
                                 ).renderText('s ' + episode[0].split('x')[0]) +
           TERM_COLORS.ENDC + "\r")
@@ -91,7 +94,6 @@ def play():
 def mode_change():
     global mode
     mode = next(modes)
-    print("MODE CHANGE", mode)
     font = FONTS.RANDOM if mode == RANDOM_MODE else FONTS.TOP20
     color = TERM_COLORS.RANDOM if mode == RANDOM_MODE else TERM_COLORS.TOP20
 
@@ -103,8 +105,6 @@ def mode_change():
 
 
 def check_action(hold_value):
-    print("hold_value", hold_value)
-
     if hold_value < 20000:
         play()
         return

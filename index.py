@@ -23,7 +23,7 @@ def button_callback(channel):
         now = datetime.datetime.now()
     else:
         time_diff = (datetime.datetime.now() - now).microseconds
-        print("time_diff", time_diff)
+
         if time_diff < 1000:
             return
 

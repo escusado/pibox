@@ -55,7 +55,7 @@ print(TERM_COLORS.APP + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
       TERM_COLORS.ENDC + "\r")
 print(TERM_COLORS.RANDOM + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
                             ).renderText('by http://toy.codes') +
-      TERM_COLORS.ENDC + "\r")
+      TERM_COLORS.ENDC + "\r".center(40))
 
 time.sleep(5)
 

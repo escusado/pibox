@@ -101,6 +101,7 @@ def play():
         isTop = 'Top# ' + str(20 - top_episode_list.index(episode[0])) + ' : '
         color = TERM_COLORS.TOP20
 
+    print("\n\n\n")
     print(color + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
                    ).renderText(isTop + 's' + episode[0].replace('x', ' e')) +
           TERM_COLORS.ENDC + "\r")
@@ -126,6 +127,7 @@ def mode_change():
     if mode == TOP20_MODE:
         top20_episodes = cycle(top_episode_list)
 
+    print("\n\n\n")
     print(color + (Figlet(font=font, width=170)).renderText(mode) +
           TERM_COLORS.ENDC)
     print("\n\n\n")

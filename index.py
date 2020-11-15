@@ -73,6 +73,10 @@ def button_callback(channel):
     print(now)
 
 
+def check_action(hold_value):
+    print("hold", hold_value)
+
+
 # Ignore warning for now
 GPIO.setwarnings(False)
 # Use physical pin numbering
@@ -82,9 +86,19 @@ GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # Setup event on pin 10 rising edge
 GPIO.add_event_detect(10, GPIO.BOTH, callback=button_callback)
 
+prev_hold = 0
 hold = 0
+same_value_check = 0
 
 while True:
     hold += GPIO.input(10)
-    isPressed = GPIO.input(10)
-    print(hold)
+
+    if hold == hold:
+        same_value_check += 1
+        next
+
+    if same_value_check == 3:
+        check_action(hold)
+        hold = 0
+
+    same_value_check = 0

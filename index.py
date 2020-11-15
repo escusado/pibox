@@ -17,8 +17,8 @@ directory = "/home/pi/media/"
 
 mode = 'normal'
 
-try:
-     mode = sys.argv[1]
+if sys.argv[1]:
+    mode = sys.argv[1]
 
 print("🚀 Simpsons Machine v0.1", mode)
 

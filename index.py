@@ -1,4 +1,4 @@
-# Import Raspberry Pi GPIO library
+#!/usr/bin/env python
 import RPi.GPIO as GPIO
 import os
 import random
@@ -43,10 +43,7 @@ def short_click():
 
 
 def long_click():
-    print("LONG")
-    print(term_colors.TITLE +
-          (Figlet(font='roman', width=170)).renderText('Top #20') +
-          term_colors.ENDC)
+    print("LONG RESTART IN OTHER MODE")
 
 
 def check_action(hold_value):

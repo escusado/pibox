@@ -38,6 +38,12 @@ mode = RANDOM_MODE
 
 player = None
 
+top_episode_list = []
+with open('top20.txt') as my_list:
+    for line in my_list:
+        top_episode_list.append(line)
+top20_episodes = cycle(top_episode_list)
+
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀 Simpsons Machine v0.1 🚀🚀🚀🚀🚀🚀🚀🚀")
 print("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀\n\n\n")
@@ -49,11 +55,12 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 
 
 def get_top():
-    next_in_list = '03x04'
+    next_in_list = next(top20_episodes)
+    print("next_in_list", next_in_list)
     next_top_episode = [
         i for i in os.listdir(directory) if i.startswith(next_in_list)
-    ]
-    print("top", next_top_episode)
+    ][0]
+    print("next_top_episode", next_top_episode)
     return next_top_episode
 
 

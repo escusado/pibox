@@ -77,6 +77,12 @@ def play():
     filename = get_top() if mode == TOP20_MODE else get_random()
     episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
+    if episode[0] in top_episode_list:
+        print(TERM_COLORS.SEASON +
+              (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)).renderText(
+                  'Episode Top#' + top_episode_list.index(episode[0])) +
+              TERM_COLORS.ENDC + "\r")
+
     print(TERM_COLORS.SEASON + (Figlet(font=FONTS.SEASON, width=LINE_LENGTH)
                                 ).renderText('s ' + episode[0].split('x')[0]) +
           TERM_COLORS.ENDC + "\r")

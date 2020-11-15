@@ -15,7 +15,7 @@ TOP20_MODE = "T o p # 20"
 
 
 class FONTS:
-    SEASON = 'serifcap'
+    SEASON = 'slant'
     TITLE = 'roman'
     RANDOM = 'cosmike'
     TOP20 = 'alligator2'

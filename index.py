@@ -7,15 +7,8 @@ from pyfiglet import Figlet
 
 
 class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+    TITLE = '\033[95m'
+    INDEX = '\033[33m'
 
 
 directory = "/home/pi/media/"
@@ -27,11 +20,11 @@ def short_click():
     episode = random.choice(os.listdir(directory)).replace('.mp4', '').replace(
         '.mkv', '').split(' - ')
 
-    print(bcolors.OKGREEN +
-          (Figlet(font='ntgreek', width=200)).renderText(episode[0]) +
+    print(bcolors.INDEX +
+          (Figlet(font='ntgreek', width=190)).renderText(episode[0]) +
           bcolors.ENDC)
-    print(bcolors.OKCYAN +
-          (Figlet(font='nancyj', width=200)).renderText(episode[1]) +
+    print(bcolors.TITLE +
+          (Figlet(font='nancyj', width=190)).renderText(episode[1]) +
           bcolors.ENDC)
 
     print("SHORT", episode)

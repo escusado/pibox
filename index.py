@@ -47,26 +47,30 @@ with open('top20.txt') as file:
         top_episode_list.append(line.strip())
 top20_episodes = None
 
-print("\n\n\n")
-
-with open('logo.txt') as file:
-    print(file.read())
-
-print(TERM_COLORS.APP + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
-                         ).renderText('Simpsons Machine v0.1') +
-      TERM_COLORS.ENDC)
-
-print(
-    TERM_COLORS.RANDOM +
-    '                                                     [by http://toy.codes]'
-    + TERM_COLORS.ENDC)
-
-time.sleep(5)
-
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.add_event_detect(10, GPIO.BOTH)
+
+
+def present():
+    print("\n\n\n")
+
+    with open('logo.txt') as file:
+        print(file.read())
+
+    print(TERM_COLORS.APP + (Figlet(font=FONTS.APP, width=LINE_LENGTH)
+                             ).renderText('Simpsons Machine v0.1') +
+          TERM_COLORS.ENDC)
+
+    print(
+        TERM_COLORS.RANDOM +
+        '                                                 [by http://toy.codes]'
+        + TERM_COLORS.ENDC)
+
+    time.sleep(5)
+
+    print("\n\n\n")
 
 
 def get_top():
@@ -140,6 +144,7 @@ def check_action(hold_value):
 hold = 0
 zero_value_check = 0
 
+present()
 mode_change()
 
 while True:

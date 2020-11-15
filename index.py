@@ -14,10 +14,19 @@ RANDOM_MODE = "Random-Mode"
 TOP20_MODE = "Top#20-Mode"
 
 
+class fonts:
+    SEASON = 'ogre'
+    EPISODE = 'ogre'
+    TITLE = 'roman'
+    RANDOM = 'cosmike'
+    TOP20 = 'larry3d'
+
+
 class term_colors:
     SEASON = '\033[95m'
-    EPISODE = '\033[36m'
     TITLE = '\033[33m'
+    RANDOM = '\033[32m'
+    TOP20 = '\033[31m'
     ENDC = '\033[0m\r'
 
 
@@ -58,16 +67,16 @@ def play():
     episode = filename.replace('.mp4', '').replace('.mkv', '').split(' - ')
 
     print(episode)
-    print(term_colors.SEASON + (Figlet(font='ogre', width=LINE_LENGTH)
+    print(term_colors.SEASON + (Figlet(font=fonts.SEASON, width=LINE_LENGTH)
                                 ).renderText('s ' + episode[0].split('x')[0]) +
           term_colors.ENDC + "\r")
 
     print(term_colors.EPISODE +
-          (Figlet(font='ogre', width=LINE_LENGTH)
+          (Figlet(font=fonts.EPISODE, width=LINE_LENGTH)
            ).renderText('e ' + episode[0].split('x')[1]) + term_colors.ENDC)
 
     print(term_colors.TITLE +
-          (Figlet(font='roman', width=LINE_LENGTH)
+          (Figlet(font=fonts.TITLE, width=LINE_LENGTH)
            ).renderText(episode[1].replace('ü', 'u').replace('ú', 'u').replace(
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + term_colors.ENDC)
@@ -82,8 +91,10 @@ def mode_change():
     global mode
     mode = next(modes)
     print("MODE CHANGE", mode)
-    print(term_colors.EPISODE +
-          (Figlet(font='cosmike', width=170)).renderText(mode) +
+    font = font.RANDOM if mode == RANDOM_MODE else font.TOP20
+    color = term_colors.RANDOM if mode == RANDOM_MODE else term_colors.TOP20
+
+    print(color + (Figlet(font=font, width=170)).renderText(mode) +
           term_colors.ENDC)
     print("\n\n\n")
     time.sleep(2)

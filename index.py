@@ -43,6 +43,11 @@ class TERM_COLORS:
     APP = '\033[35m'
 
 
+played_episodes = 0
+with open(LOG) as f:
+    played_episodes = int(f.readline())
+
+
 def present():
     print("\n\n\n")
 
@@ -53,6 +58,8 @@ def present():
                              ).renderText('Simpsons Machine v0.1') +
           TERM_COLORS.ENDC)
 
+    print(TERM_COLORS.TITLE + 'he tocado: ' + played_episodes +
+          ' episodios desde Noviembre 16, 2020' + TERM_COLORS.ENDC)
     print(TERM_COLORS.RANDOM + '[by http://toy.codes]' + TERM_COLORS.ENDC)
 
     time.sleep(5)
@@ -155,10 +162,6 @@ def check_action(hold_value):
     mode_change()
 
 
-played_episodes = 0
-with open(LOG) as f:
-    played_episodes = int(f.readline())
-
 # kickstart app
 mode_change()
 while True:
@@ -168,7 +171,7 @@ while True:
     except:
         print('ENDED', played_episodes)
         played_episodes += 1
-        open(LOG).write(str(splayed_episodes)).close()
+        open(LOG).write(str(played_episodes)).close()
         play()
 
     # button press short/long detection

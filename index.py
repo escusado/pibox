@@ -43,7 +43,10 @@ class TERM_COLORS:
     APP = '\033[35m'
 
 
-played_episodes = int(open(LOG).readline())
+try:
+    played_episodes = int(open(LOG).readline())
+except:
+    played_episodes = 0
 # with open(LOG) as f:
 #     played_episodes = int(f.readline())
 

@@ -172,6 +172,7 @@ while True:
     except:
         print('ENDED', played_episodes)
         played_episodes += 1
+        os.system('rm ' + LOG)
         LOGFILE.write(str(played_episodes))
         play()
 

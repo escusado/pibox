@@ -141,14 +141,12 @@ zero_value_check = 0
 started_press_time = None
 
 present()
-mode_change()
 
 
 def check_action(hold_value):
     diff = datetime.datetime.now() - started_press_time
     hold_time = (diff.days * 86400000) + (diff.seconds *
                                           1000) + (diff.microseconds / 1000)
-    print(hold_time)
     if hold_time < 1000:
         play()
         return
@@ -156,15 +154,17 @@ def check_action(hold_value):
     mode_change()
 
 
+# kickstart app
+mode_change()
 while True:
-    # if bool(player) == False:
-    #     play()
-
+    # episode finished play next
     try:
         print(player.playback_status())
     except:
         print('ENDED')
+        play()
 
+    # button press short/long detection
     if GPIO.input(10) == 0:
         if hold > 0:
             zero_value_check += 1
@@ -173,7 +173,6 @@ while True:
             check_action(hold)
             zero_value_check = 0
             hold = 0
-
     else:
         hold += 1
         if hold == 1:

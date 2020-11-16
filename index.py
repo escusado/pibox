@@ -13,10 +13,15 @@ from pathlib import Path
 from itertools import cycle
 from pyfiglet import Figlet
 
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.add_event_detect(10, GPIO.BOTH)
+
 LINE_LENGTH = 128
 RANDOM_MODE = "Random Mode"
 TOP20_MODE = "T o p # 20 M o d e"
-STOPPED_STATUS = "Stopped"
+DIRECTORY = "/home/pi/media/"
 
 
 class FONTS:
@@ -33,25 +38,6 @@ class TERM_COLORS:
     TITLE = '\033[33m'
     ENDC = '\033[0m\r'
     APP = '\033[35m'
-
-
-directory = "/home/pi/media/"
-
-modes = cycle([RANDOM_MODE, TOP20_MODE])
-mode = RANDOM_MODE
-
-player = None
-
-top_episode_list = []
-with open('top20.txt') as file:
-    for line in file:
-        top_episode_list.append(line.strip())
-top20_episodes = None
-
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.add_event_detect(10, GPIO.BOTH)
 
 
 def present():
@@ -71,16 +57,27 @@ def present():
     print("\n\n\n")
 
 
+top_episode_list = []
+with open('top20.txt') as file:
+    for line in file:
+        top_episode_list.append(line.strip())
+top20_episodes = None
+
+
 def get_top():
     next_in_list = next(top20_episodes)
     next_top_episode = [
-        i for i in os.listdir(directory) if i.startswith(next_in_list)
+        i for i in os.listdir(DIRECTORY) if i.startswith(next_in_list)
     ][0]
     return next_top_episode
 
 
 def get_random():
-    return random.choice(os.listdir(directory))
+    return random.choice(os.listdir(DIRECTORY))
+
+
+player = None
+mode = RANDOM_MODE
 
 
 def play():
@@ -110,8 +107,11 @@ def play():
                'é', 'e').replace('á', 'a').replace('í', 'i').replace(
                    'ó', 'o').replace('ñ', 'n')) + TERM_COLORS.ENDC)
 
-    player = OMXPlayer(Path(directory + filename))
+    player = OMXPlayer(Path(DIRECTORY + filename))
     player.set_aspect_mode('fill')
+
+
+modes = cycle([RANDOM_MODE, TOP20_MODE])
 
 
 def mode_change():
@@ -134,6 +134,14 @@ def mode_change():
     play()
 
 
+hold = 0
+zero_value_check = 0
+started_press_time = None
+
+present()
+mode_change()
+
+
 def check_action(hold_value):
     diff = datetime.datetime.now() - started_press_time
     hold_time = (diff.days * 86400000) + (diff.seconds *
@@ -146,16 +154,10 @@ def check_action(hold_value):
     mode_change()
 
 
-hold = 0
-zero_value_check = 0
-started_press_time = None
-
-present()
-mode_change()
-
 while True:
-    if bool(player) == False:
-        play()
+    print(player)
+    # if bool(player) == False:
+    #     play()
 
     if GPIO.input(10) == 0:
         if hold > 0:

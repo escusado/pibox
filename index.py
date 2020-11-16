@@ -22,6 +22,8 @@ LINE_LENGTH = 128
 RANDOM_MODE = "Random Mode"
 TOP20_MODE = "T o p # 20 M o d e"
 DIRECTORY = "/home/pi/media/"
+DEBUG_DIRECTORY = "/home/pi/debug/"
+DIRECTORY = DEBUG_DIRECTORY
 
 
 class FONTS:

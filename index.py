@@ -61,7 +61,7 @@ def present():
                              ).renderText('Simpsons Machine v0.1') +
           TERM_COLORS.ENDC)
 
-    print('\033[3A)
+    print('\033[3A')
 
     print(TERM_COLORS.TITLE + 'he tocado ' + str(played_episodes) +
           ' episodios desde Noviembre 16, 2020' + TERM_COLORS.ENDC)

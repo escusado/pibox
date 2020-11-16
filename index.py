@@ -44,7 +44,7 @@ class TERM_COLORS:
 
 
 played_episodes = 0
-with open(LOG, 'rw') as f:
+with open(LOG) as f:
     played_episodes = int(f.readline())
 
 
@@ -171,7 +171,7 @@ while True:
     except:
         print('ENDED', played_episodes)
         played_episodes += 1
-        open(LOG).write(str(played_episodes)).close()
+        open(LOG, 'r').write(str(played_episodes)).close()
         play()
 
     # button press short/long detection

@@ -173,7 +173,7 @@ mode_change()
 while True:
     # episode finished play next
     try:
-        print(player.playback_status())
+        player.playback_status()
     except:
         played_episodes += 1
         os.system('rm ' + LOG)

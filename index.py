@@ -157,7 +157,7 @@ def check_action(hold_value):
 
 
 while True:
-    print(player)
+    print(player.playback_status())
     # if bool(player) == False:
     #     play()
 

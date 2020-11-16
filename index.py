@@ -63,10 +63,7 @@ def present():
                              ).renderText('Simpsons Machine v0.1') +
           TERM_COLORS.ENDC)
 
-    print(
-        TERM_COLORS.RANDOM +
-        '                                                 [by http://toy.codes]'
-        + TERM_COLORS.ENDC)
+    print(TERM_COLORS.RANDOM + '[by http://toy.codes]' + TERM_COLORS.ENDC)
 
     time.sleep(5)
 
@@ -117,6 +114,8 @@ def play():
 
 
 def mode_change():
+    if player:
+        player.quit()
     global mode
     mode = next(modes)
     font = FONTS.RANDOM if mode == RANDOM_MODE else FONTS.TOP20
@@ -150,7 +149,7 @@ present()
 while True:
     # if player.playback_status() == STOPPED_STATUS:
     #     play()
-    if bool(player == False):
+    if bool(player) == False:
         play()
 
     if GPIO.input(10) == 0:

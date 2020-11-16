@@ -44,7 +44,7 @@ class TERM_COLORS:
 
 
 played_episodes = 0
-with open(LOG) as f:
+with open(LOG, 'rw') as f:
     played_episodes = int(f.readline())
 
 

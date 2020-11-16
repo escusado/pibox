@@ -164,17 +164,19 @@ def check_action(hold_value):
 
 # kickstart app
 mode_change()
-LOGFILE = open(LOG, 'w')
+
 while True:
     # episode finished play next
     try:
         print(player.playback_status())
     except:
-        print('ENDED', played_episodes)
         played_episodes += 1
         os.system('rm ' + LOG)
         os.mknod(LOG)
+        LOGFILE = open(LOG, 'w')
         LOGFILE.write(str(played_episodes))
+        LOGFILE.close()
+        print('ENDED', played_episodes)
         play()
 
     # button press short/long detection

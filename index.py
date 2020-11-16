@@ -157,9 +157,13 @@ def check_action(hold_value):
 
 
 while True:
-    print(player.playback_status())
     # if bool(player) == False:
     #     play()
+
+    try:
+        print(player.playback_status())
+    except dbus.exceptions.DBusException:
+        print('ENDED')
 
     if GPIO.input(10) == 0:
         if hold > 0:

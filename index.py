@@ -7,6 +7,7 @@ import os
 import random
 import sys
 import time
+import datetime
 from omxplayer.player import OMXPlayer
 from pathlib import Path
 from itertools import cycle
@@ -134,7 +135,10 @@ def mode_change():
 
 
 def check_action(hold_value):
-    print(hold_value)
+    diff = datetime.datetime.now() - started_press_time
+    hold_time = (diff.days * 86400000) + (diff.seconds *
+                                          1000) + (diff.microseconds / 1000)
+    print(hold_time)
     if hold_value < 50:
         play()
         return
@@ -144,6 +148,7 @@ def check_action(hold_value):
 
 hold = 0
 zero_value_check = 0
+started_press_time = None
 
 present()
 mode_change()
@@ -163,3 +168,5 @@ while True:
 
     else:
         hold += 1
+        if hold == 1:
+            started_press_time = datetime.datetime.now()

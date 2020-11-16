@@ -164,6 +164,7 @@ def check_action(hold_value):
 
 # kickstart app
 mode_change()
+LOGFILE = open(LOG, 'w')
 while True:
     # episode finished play next
     try:
@@ -171,7 +172,7 @@ while True:
     except:
         print('ENDED', played_episodes)
         played_episodes += 1
-        open(LOG, 'w').write(str(played_episodes))
+        LOGFILE.write(str(played_episodes))
         play()
 
     # button press short/long detection

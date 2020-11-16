@@ -173,6 +173,7 @@ while True:
         print('ENDED', played_episodes)
         played_episodes += 1
         os.system('rm ' + LOG)
+        os.mknod(LOG)
         LOGFILE.write(str(played_episodes))
         play()
 

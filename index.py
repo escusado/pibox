@@ -24,6 +24,7 @@ TOP20_MODE = "T o p # 20 M o d e"
 DIRECTORY = "/home/pi/media/"
 DEBUG_DIRECTORY = "/home/pi/debug/"
 DIRECTORY = DEBUG_DIRECTORY
+LOG = '/home/pi/simpsons-machine.log'
 
 
 class FONTS:
@@ -154,6 +155,10 @@ def check_action(hold_value):
     mode_change()
 
 
+played_episodes = 0
+with open(LOG) as f:
+    played_episodes = int(f.readline())
+
 # kickstart app
 mode_change()
 while True:
@@ -162,6 +167,8 @@ while True:
         print(player.playback_status())
     except:
         print('ENDED')
+        played_episodes += 1
+        open(LOG).write(played_episodes).close()
         play()
 
     # button press short/long detection

@@ -166,7 +166,7 @@ while True:
     try:
         print(player.playback_status())
     except:
-        print('ENDED')
+        print('ENDED', played_episodes)
         played_episodes += 1
         open(LOG).write(played_episodes).close()
         play()

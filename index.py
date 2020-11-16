@@ -139,7 +139,7 @@ def check_action(hold_value):
     hold_time = (diff.days * 86400000) + (diff.seconds *
                                           1000) + (diff.microseconds / 1000)
     print(hold_time)
-    if hold_value < 50:
+    if hold_time < 1000:
         play()
         return
 

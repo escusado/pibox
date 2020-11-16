@@ -146,10 +146,11 @@ hold = 0
 zero_value_check = 0
 
 present()
-mode_change()
 
 while True:
-    if player.playback_status() == STOPPED_STATUS:
+    # if player.playback_status() == STOPPED_STATUS:
+    #     play()
+    if bool(player == False):
         play()
 
     if GPIO.input(10) == 0:

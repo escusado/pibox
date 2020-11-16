@@ -147,8 +147,6 @@ zero_value_check = 0
 present()
 
 while True:
-    # if player.playback_status() == STOPPED_STATUS:
-    #     play()
     if bool(player) == False:
         play()
 

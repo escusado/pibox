@@ -21,10 +21,9 @@ GPIO.add_event_detect(10, GPIO.BOTH)
 LINE_LENGTH = 128
 RANDOM_MODE = "Random Mode"
 TOP20_MODE = "T o p # 20 M o d e"
+LOG = '/home/pi/simpsons-machine.log'
 DIRECTORY = "/home/pi/media/"
 DEBUG_DIRECTORY = "/home/pi/debug/"
-DIRECTORY = DEBUG_DIRECTORY
-LOG = '/home/pi/simpsons-machine.log'
 
 
 class FONTS:
@@ -46,9 +45,8 @@ class TERM_COLORS:
 try:
     played_episodes = int(open(LOG).readline())
 except:
+    print('Error on log reset to 0')
     played_episodes = 0
-# with open(LOG) as f:
-#     played_episodes = int(f.readline())
 
 
 def present():
@@ -65,6 +63,8 @@ def present():
 
     print(TERM_COLORS.TITLE + 'he tocado ' + str(played_episodes) +
           ' episodios desde Noviembre 16, 2020' + TERM_COLORS.ENDC)
+
+    print("\n\n\n")
     print(TERM_COLORS.RANDOM + '[by http://toy.codes]' + TERM_COLORS.ENDC)
 
     time.sleep(5)

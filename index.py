@@ -145,6 +145,7 @@ hold = 0
 zero_value_check = 0
 
 present()
+mode_change()
 
 while True:
     if bool(player) == False:

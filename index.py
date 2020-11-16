@@ -168,7 +168,7 @@ while True:
     except:
         print('ENDED', played_episodes)
         played_episodes += 1
-        open(LOG).write(played_episodes).close()
+        open(LOG).write(str(splayed_episodes)).close()
         play()
 
     # button press short/long detection
